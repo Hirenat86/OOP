@@ -18,6 +18,8 @@ class Student:
                 lecturer.grades[course] = [grade]
         else:
             return 'Ошибка'  
+    def __str__(self):
+        return f'Имя: {self.name} \nФамилия: {self.surname}'
  
      
 class Mentor:
@@ -32,10 +34,12 @@ class Mentor:
  
 
 class Lecturer(Mentor):
-   def __init__(self, name, surname, course_attached):
+    def __init__(self, name, surname, course_attached):
         super().__init__(name, surname)
         super().add_courses_attached(course_attached)
         self.grades = {}
+    def __str__(self):
+        return f'Имя: {self.name} \nФамилия: {self.surname}'
  
 
 class Reviewer(Mentor):
@@ -53,13 +57,23 @@ class Reviewer(Mentor):
             return 'Ошибка'
     
     def __str__(self):
-        return f"Имя: {self.name} \nФамилия: {self.surname}"
+        return f'Имя: {self.name} \nФамилия: {self.surname}'
 
-rev = Reviewer('ivan', 'Ivanov', 'py')
-print (rev.courses_attached)
-rev.add_courses_attached('dfd')
-print (rev.courses_attached)
+student = Student("dmitriy","Petukhov","M")
+print(student)
 
+
+# rev = Reviewer('ivan', 'Ivanov', 'py')
+# print (rev.courses_attached)
+# rev.add_courses_attached('dfd')
+# print (rev.courses_attached)
+
+# def str(self):
+# return f’Имя: {self.name}\n’
+# f’Фамилия: {self.surname}\n’
+# f’Средняя оценка за домашние задания: {self.ever_grade()}\n’
+# f’Курсы в процессе изучения: {", “.join(self.courses_in_progress)}\n’
+# f’Завершенные курсы: {”, ".join(self.finished_courses)}’
 
 # best_student = Student('Ruoy', 'Eman', 'your_gender')
 # best_student.courses_in_progress += ['Python']
